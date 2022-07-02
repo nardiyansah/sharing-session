@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"net/http"
 )
 
@@ -35,12 +36,24 @@ func greeting(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func file(w http.ResponseWriter, r *http.Request) {
+	b, err := ioutil.ReadFile("README.md")
+	if err != nil {
+		fmt.Fprint(w, "error when prepare file")
+	}
+
+	w.WriteHeader(http.StatusOK)
+	w.Header().Set("Content-Type", "application/octet-stream")
+	w.Write(b)
+}
+
 func main() {
 
 	mux := http.DefaultServeMux
 
 	mux.HandleFunc("/", hello)
 	mux.HandleFunc("/greeting", greeting)
+	mux.HandleFunc("/file", file)
 
 	var handler http.Handler = mux
 	handler = middleware(handler)
