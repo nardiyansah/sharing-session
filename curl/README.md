@@ -10,4 +10,4 @@ https://curl.se/
 https://github.com/curl/curl
 
 ### Slides
-- [Introduction to cURL](https://docs.google.com/presentation/d/1lGvQdsuwlyVQrfMgKHUJkWK-liohdQMsek9_U6E1gHk/edit?usp=sharing)
+- [Introduction to cURL]("introduction to curl.md")
