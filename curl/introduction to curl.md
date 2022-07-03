@@ -1,4 +1,5 @@
 # Introduction to cURL
+![curl image](https://curl.se/logo/curl-logo.svg)
 
 ## Agenda
 - What is cURL ?
